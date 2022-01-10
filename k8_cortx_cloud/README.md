@@ -4,17 +4,19 @@
 
 ## Table of Contents:
 
-1. Project Overview
-1. Reference Architecture
-1. CORTX on Kubernetes Pre-requisites
-1. Kubernetes Reference Deployments
-1. Quick Start
-1. Solution YAML Overview
-1. License
+1. [Project Overview](#project-overview)
+1. [Reference Architecture](#reference-architecture)
+1. [CORTX on Kubernetes Pre-requisites](#cortx-on-kubernetes-pre-requisites)
+1. [Kubernetes Reference Deployments](#kubernetes-reference-deployments)
+1. [Quick Start](#quick-start)
+1. [Solution YAML Overview](#solution-yaml-overview)
+1. [License](#license)
 
 ## Project Overview
 
-This repository provides application-specific [Helm](https://helm.sh) charts and deployment scripts for deploying CORTX on to an existing [Kubernetes](https://kubernetes.io) cluster. Deploying and managing Kubernetes is outside the scope of this repository, however configuration and best practices are offered as guidance where appropriate, along with some links to reference Kubernetes cluster deployment processes.
+This repository provides application-specific [Helm](https://helm.sh) charts and deployment scripts for deploying CORTX on to an existing [Kubernetes](https://kubernetes.io) cluster.
+
+Deploying and managing Kubernetes is outside the scope of this repository, however configuration and best practices are offered as guidance where appropriate, along with links to [reference Kubernetes cluster deployment processes](#kubernetes-reference-deployments).
 
 ## Reference Architecture
 
@@ -24,6 +26,13 @@ TBD Image
 
 TBD
 
+1. [Helm](https://helm.sh/)
+
+  CORTX on Kubernetes is provided via Helm Charts. As such, you will need Helm installed locally to deploy CORTX on Kubernetes. You can find the specific installation instructions for your local platform via the [Installing Helm](https://helm.sh/docs/intro/install/) section of the official Helm documentation.
+
+2. [TBD](#tbd)
+
+  TBD
 ## Kubernetes Reference Deployments
 
 TBD
@@ -52,14 +61,6 @@ TBD
 
 ---
 
-###############################################
-# Install helm                                #
-###############################################
-1. Install helm on the master node:
-
-curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
-chmod 700 get_helm.sh
-./get_helm.sh
 
 ###############################################
 # Local block storage requirements            #
