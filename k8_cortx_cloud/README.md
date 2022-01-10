@@ -28,11 +28,11 @@ TBD
 
 1. [Helm](https://helm.sh/)
 
-  CORTX on Kubernetes is provided via Helm Charts. As such, you will need Helm installed locally to deploy CORTX on Kubernetes. You can find the specific installation instructions for your local platform via the [Installing Helm](https://helm.sh/docs/intro/install/) section of the official Helm documentation.
+   CORTX on Kubernetes is provided via Helm Charts. As such, you will need Helm installed locally to deploy CORTX on Kubernetes. You can find the specific installation instructions for your local platform via the [Installing Helm](https://helm.sh/docs/intro/install/) section of the official Helm documentation.
 
 2. [TBD](#tbd)
 
-  TBD
+   TBD
 ## Kubernetes Reference Deployments
 
 TBD
