@@ -43,18 +43,84 @@ TBD
 
 ## Solution YAML Overview
 
-### Common parameters
+The CORTX solution consists of all paramaters required to deploy CORTX on Kubernetes. The pre-req, deploy, and destroy scripts parse the solution file and extract information they need to deploy and destroy CORTX.
+
+All paths below are prefixed with `solution.` for fully-qualified naming.
+### Global parameters
 
 | Name                     | Description                                                                             | Value           |
 | ------------------------ | --------------------------------------------------------------------------------------- | --------------- |
-| `nameOverride`           | String to partially override kafka.fullname                                             | `""`            |
-| `fullnameOverride`       | String to fully override kafka.fullname                                                 | `""`            |
-| `clusterDomain`          | Default Kubernetes cluster domain                                                       | `cluster.local` |
-| `commonLabels`           | Labels to add to all deployed objects                                                   | `{}`            |
-| `commonAnnotations`      | Annotations to add to all deployed objects                                              | `{}`            |
+| `namespace`              | The kubernetes namespace for CORTX Pods to be deployed in.                              | `default`            |
+
+### Secret parameters
+
+This section contains the CORTX and third-party authentication information used to deploy CORTX on Kubernetes.
+
+| Name                     | Description                                                                             | Value           |
+| ------------------------ | --------------------------------------------------------------------------------------- | --------------- |
+| `secrets.name`           | Name for the Kubernetes secret CORTX uses to store solution-specific secrets.           | `cortx-secret`            |
+| `secrets.content.openldap_admin_secret`          | Administrator password for the OpenLDAP required service        | `seagate1` |
+| `secrets.content.kafka_admin_secret`          | Administrator password for the Kafka required service        | `Seagate@123` |
+| `secrets.content.consul_admin_secret`          | Administrator password for the Consul required service        | `Seagate@123` |
+| `secrets.content.common_admin_secret`          | Administrator password for the CORTX common services        | `Seagate@123` |
+| `secrets.content.s3_auth_admin_secret`          | Administrator password for the S3 Auth CORTX component        | `ldapadmin` |
+| `secrets.content.csm_auth_admin_secret`          | Administrator password for the CSM Auth CORTX component        | `seagate2` |
+| `secrets.content.csm_mgmt_admin_secret`          | Administrator password for the CSM Managment CORTX component   | `Cortxadmin@123` |
+
+### Image parameters
+
+This section contains the CORTX and third-party images used to deploy CORTX on Kubernetes.
+
+| Name                     | Description                                                                             | Value           |
+| ------------------------ | --------------------------------------------------------------------------------------- | --------------- |
+| `images.cortxcontrolprov`          | Image name (registry, repository, & tag) for the CORTX Control Provisioner components   | `ghcr.io/seagate/cortx-all:2.0.0-stable-custom-ci` |
+| `images.cortxcontrol`              | Image name (registry, repository, & tag) for the CORTX Control components   | `ghcr.io/seagate/cortx-all:2.0.0-stable-custom-ci` |
+| `images.cortxdataprov`             | Image name (registry, repository, & tag) for the CORTX Data Provisioner components   | `ghcr.io/seagate/cortx-all:2.0.0-stable-custom-ci` |
+| `images.cortxdata`                 | Image name (registry, repository, & tag) for the CORTX Data components   | `ghcr.io/seagate/cortx-all:2.0.0-stable-custom-ci` |
+| `images.cortxserverprov`           | Image name (registry, repository, & tag) for the CORTX Server Provisioner components   | `ghcr.io/seagate/cortx-all:2.0.0-stable-custom-ci` |
+| `images.cortxserver`               | Image name (registry, repository, & tag) for the CORTX Server components   | `ghcr.io/seagate/cortx-all:2.0.0-stable-custom-ci` |
+| `images.cortxha`          | Image name (registry, repository, & tag) for the CORTX HA components   | `ghcr.io/seagate/cortx-all:2.0.0-stable-custom-ci` |
+| `images.cortxclient`          | Image name (registry, repository, & tag) for the CORTX Client components   | `ghcr.io/seagate/cortx-all:2.0.0-stable-custom-ci` |
+| `images.openldap`          | Image name (registry, repository, & tag) for the OpenLDAP required service   | `ghcr.io/seagate/symas-openldap:2.4.58` |
+| `images.consul`          | Image name (registry, repository, & tag) for the Consul required service   | `ghcr.io/seagate/consul:1.10.0` |
+| `images.kafka`          | Image name (registry, repository, & tag) for the Kafka required service   | `ghcr.io/seagate/kafka:3.0.0-debian-10-r7` |
+| `images.zookeeper`          | Image name (registry, repository, & tag) for the Zookeeper required service   | `ghcr.io/seagate/zookeeper:3.7.0-debian-10-r182` |
+| `images.rancher`          | Image name (registry, repository, & tag) for the Rancher Local Path Provisioner container   | `ghcr.io/seagate/local-path-provisioner:v0.0.20` |
+| `images.busybox`          | Image name (registry, repository, & tag) for the utility busybox container   | `ghcr.io/seagate/busybox:latest` |
+
+### Common parameters
+
+This section contains common paramaters that applies to all CORTX Data nodes.
+
+| Name                     | Description                                                                             | Value           |
+| ------------------------ | --------------------------------------------------------------------------------------- | --------------- |
+| `TBD`       | Hostname for the first node in the Kubernetes cluster available to deploy CORTX components. | `node-1` |
 
 TBD
 
+### Storage parameters
+
+The metadata and data drives are defined in this section. All drives must be the same across all nodes on which CORTX Data will be deployed. A minimum of 1 CVG of type `ios` with one metadata drive and one data drive is required.
+
+| Name                     | Description                                                                             | Value           |
+| ------------------------ | --------------------------------------------------------------------------------------- | --------------- |
+| `TBD`       | Hostname for the first node in the Kubernetes cluster available to deploy CORTX components. | `node-1` |
+
+TBD
+
+### Node parameters
+
+This section contains information about all the worker nodes used to deploy CORTX cloud cluster. All nodes must have all the metadata and data drives mentioned in the "Storage" section above.
+
+| Name                     | Description                                                                             | Value           |
+| ------------------------ | --------------------------------------------------------------------------------------- | --------------- |
+| `nodes.node1.name`       | Hostname for the first node in the Kubernetes cluster available to deploy CORTX components. | `node-1` |
+| `nodes.node2.name`       | Hostname for the second node in the Kubernetes cluster available to deploy CORTX components. | `node-2` |
+| `...`                    | ...                                                                                     | `...`
+| `nodes.nodeN.name`       | Hostname for the Nth node in the Kubernetes cluster available to deploy CORTX components. | `""` |
+
+
+    
 ## License
 
 TBD 
