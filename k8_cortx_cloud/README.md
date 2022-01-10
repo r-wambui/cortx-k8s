@@ -20,8 +20,9 @@ Deploying and managing Kubernetes is outside the scope of this repository, howev
 
 ## Reference Architecture
 
-TBD Image
+![CORTX on Kubernetes Reference Architecture](./images/cortx-ref-arch-k8s.jpg)
 
+TBD Context
 ## CORTX on Kubernetes Pre-requisites
 
 TBD
