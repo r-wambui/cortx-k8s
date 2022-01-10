@@ -1,3 +1,56 @@
+# CORTX on Kubernetes
+
+[CORTX Community Object Storage](http://cortx.io/) is 100% open-source object storage, uniquely optimized for mass capacity storage devices. This repository provides capability and support for deploying CORTX onto the [Kubernetes](https://kubernetes.io/) container orchestration platform.
+
+## Table of Contents:
+
+1. Project Overview
+1. Reference Architecture
+1. CORTX on Kubernetes Pre-requisites
+1. Kubernetes Reference Deployments
+1. Quick Start
+1. Solution YAML Overview
+1. License
+
+## Project Overview
+
+This repository provides application-specific [Helm](https://helm.sh) charts and deployment scripts for deploying CORTX on to an existing [Kubernetes](https://kubernetes.io) cluster. Deploying and managing Kubernetes is outside the scope of this repository, however configuration and best practices are offered as guidance where appropriate, along with some links to reference Kubernetes cluster deployment processes.
+
+## Reference Architecture
+
+TBD Image
+
+## CORTX on Kubernetes Pre-requisites
+
+TBD
+
+## Kubernetes Reference Deployments
+
+TBD
+
+## Quick Start
+
+TBD
+
+## Solution YAML Overview
+
+### Common parameters
+
+| Name                     | Description                                                                             | Value           |
+| ------------------------ | --------------------------------------------------------------------------------------- | --------------- |
+| `nameOverride`           | String to partially override kafka.fullname                                             | `""`            |
+| `fullnameOverride`       | String to fully override kafka.fullname                                                 | `""`            |
+| `clusterDomain`          | Default Kubernetes cluster domain                                                       | `cluster.local` |
+| `commonLabels`           | Labels to add to all deployed objects                                                   | `{}`            |
+| `commonAnnotations`      | Annotations to add to all deployed objects                                              | `{}`            |
+
+TBD
+
+## License
+
+TBD 
+
+---
 
 ###############################################
 # Install helm                                #
